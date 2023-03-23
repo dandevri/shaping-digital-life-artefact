@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaping Digital Life - Artefact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tufte.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <article>
+    <h1>Be Your Own Bank</h1>
+    <p class="subtitle">Setting up a self-hosted Bitcoin node</p>
+  </article>
+  <section>
+    <p>Accompanyed to the research report for the Shaping Digital Life course at the Master's programm Information
+      Studies at the University of Amsterdam, a 'science communication artefact' was created to communicate the content
+      of the research report. </p>
+
+    <p>The research report investigates blockchain, more concretely the impact of digital
+      currencies (cryptocurrencies) trough
+      an <em>inclusive</em> lens focussing on the accessibility of cryptocurrencies in relation to 'traditional'
+      financial
+      services based on prediction Nº 7; <em>The Internet will become ‘the Internets’ as access, systems, and
+        principles are
+        renegotiated</em> as stated in the article titled Digital Life in 2025 by the Pew Research Center. </p>
+
+    <p>For this study an interactive prototype of a Bitcoin node was created using a
+      microcontroller (Raspberry Pi) with a storage device and blockchain software (Raspiblitz) was installed to create
+      a
+      working Bitcoin node to receive and store transactions. This build log shows the process of setting up the
+      prototype of the node.</p>
+
+    <a href="#" class="button">Download the full research report</a>
+  </section>
+  <section>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#">Gathering the Hardware</a></li>
+      <li><a href="#">Installing the software</a></li>
+      <li><a href="#">Setting up the node</a></li>
+      <li><a href="#">Testing transactions</a></li>
+    </ul>
+
+  </section>
+
+  <section>
+    <h2>Gathering the hardware</h2>
+    <p>To run a full Bitcoin node two main hardware components are needed. A microcontroller using an ARM chipset that
+      has wifi capabilities. A popular option, and the microcontroller we will be using for this project, is a Raspberry
+      Pi Model 4 with atleast 4gb of RAM. This microcontroller is a great balance between cost (around 40 euros),
+      processing power and connection ports. This microcontroller will run the node software. The second main hardware
+      component is a hard drive with around 1TB of storage. This will be used to store the complete blockchain ledger of
+      Bitcoin to date. </p>
+
+    <p>Additionally, some other hardware components are needed to make a fully operating node. A power supply to power
+      the microcontroller, an SD card to install the software and create back-ups and preferabbly an ethernet cable to
+      connect the node to the internet.</p>
+
+    <p>A full node is likely to operate 24/7, due to it's pcb structure a Raspberry PI is able to handle this workload
+      but it is recommended to cool the CPU to make it not overheat. For this reason I deciced to 3D print an enclosure
+      for the raspberry pi with active fan cooling.</p>
+  </section>
+</body>
+
+</html>
