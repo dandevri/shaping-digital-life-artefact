@@ -59,6 +59,11 @@
       component is a hard drive with around 1TB of storage. This will be used to store the complete blockchain ledger of
       Bitcoin to date. </p>
 
+    <figure>
+      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+      <figcaption>Figure 1: Overview of all hardware</figcaption>
+    </figure>
+
     <p>Additionally, some other hardware components are needed to make a fully operating node. A power supply to power
       the microcontroller, an SD card to install the software and create back-ups and preferabbly an ethernet cable to
       connect the node to the internet.</p>
@@ -66,6 +71,89 @@
     <p>A full node is likely to operate 24/7, due to it's pcb structure a Raspberry PI is able to handle this workload
       but it is recommended to cool the CPU to make it not overheat. For this reason I deciced to 3D print an enclosure
       for the raspberry pi with active fan cooling.</p>
+  </section>
+
+  <figure class="fullwidth">
+    <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+    <figcaption>Figure 2: Final hardware setup with 3D printed enclosure</figcaption>
+  </figure>
+
+  <section>
+    <h2>Installing the software</h2>
+    <p>Several software packages exist for hosting a Bitcoin full node (e.g. Umbrel, Voltage, Start9) but after
+      researching the projects RaspiBlitz suited my needs the most. It's completely open-source, easy to install if you
+      know you're way around the terminal, has a decent user interface and it's completely self-hosted. You are not
+      relient on any third-party cloud service. </p>
+
+
+    <p>The focus of the project is also entirely Bitcoin and Lightning so many
+      additional services (e.g. BTCPay, Mempool explorer) can be installed as plugins. The goal of the RaspiBlitz is
+      mainly targeted at learning how to run your own node decentralized from home. There are 168 contributors
+      working on the project and receives regular update. v1.8 was released in november 2022 and has been stabely
+      running sice then, no security breaches to date.</p>
+
+    <figure>
+      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+      <figcaption>Figure 3: Flashing the SD card</figcaption>
+    </figure>
+
+    <p>To install the software, it is downloaded from the GitHub release page which gives you an <code>.img</code> file.
+      To verify the software a quick verification of the image was performed by using the shasum command on the
+      downloaded image <code>shasum -a 256 raspiblitz-v1.8.0c-2022-11-01.img.gz.</code>
+    </p>
+
+    <p>Now the image can be flashed to the MicroSD Card. For this Balena Etcher was used. You select the image, select
+      the storage device (SD Card) and hit flash. After 10 minutes or so (the image is around 3GB) this process is
+      completed and you have the software installed on the SD card.</p>
+
+
+  </section>
+
+  <section>
+    <h2>Setting up the Node</h2>
+    <p>Now it's time to actually set-up the node. The SD card is inserted to the microcontroller, connected to power
+      and ethernet and the storage device for the ledger is connected using USB. At my personal homelab in the closed of
+      my home all devices were connected. </p>
+
+    <figure class="fullwidth">
+      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+      <figcaption>Figure 4: Node running in my homelab</figcaption>
+    </figure>
+
+    <p>After the device is connected and powered on you can reach it over you home network by using the terminal and
+      <code>SSH</code>. The IP address of the Raspberry Pi can be found in the network software of your home router.
+      Using the <code>ssh admin@[xxxxx]</code> command with the correct IP and password RaspiBlitz you are logged into
+      the device and prompted with a set-up screen. The steps are described in the readme.md file of the RaspiBlitz
+      project on GitHub so going into detail here is unnecessary but the setup process basically guides you through two
+      things:
+    </p>
+    <p>
+      <strong>Creating a lightning wallet:</strong> the set-up screen asks to set-up password for the web interface and
+      your
+      wallets. After the wallet is created a seed phrase will be shown which is important to write down. This gives
+      access to the funds if the hardware fails. It allows you to recover your wallet.</strong>
+    </p>
+    <p>
+      <strong>Copying the full Blockchain ledger to the hard-drive:</strong> self-validating all the blocks to the
+      hard-drive
+      takes around 8-9 days so for the prototype the option was picked to copy the bitcoin core from my laptop which
+      took about 12h.
+    </p>
+
+    <p>That's it! After rebooting and logging back in the full node is up and running!</p>
+  </section>
+
+  <section>
+    <h2>Testing Transactions</h2>
+    <p>The software provided a nice web-based user interface for connecting to the node and making transactions to the
+      wallet. To test the workings of the wallet a small amount was deposited to the account.</p>
+
+    <figure class="fullwidth">
+      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+      <figcaption>Figure 4: Node running in my homelab</figcaption>
+    </figure>
+
+    <p>On a Ledger Hardware Wallet bitcoin was transferred to the wallet there.</p>
   </section>
 </body>
 
