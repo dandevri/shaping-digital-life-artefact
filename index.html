@@ -19,13 +19,15 @@
     <p class="subtitle">Setting up a self-hosted Bitcoin node</p>
   </article>
   <section>
-    <p>Accompanyed to the research report for the Shaping Digital Life course at the Master's programm Information
-      Studies at the University of Amsterdam, a 'science communication artefact' was created to communicate the content
-      of the research report. </p>
+    <p>Accompanied by the research report for the Shaping Digital Life course at the Master's program Information
+      Studies at
+      the University of Amsterdam, a 'science communication artifact' was created to communicate the content of the
+      research
+      report.</p>
 
     <p>The research report investigates blockchain, more concretely the impact of digital
-      currencies (cryptocurrencies) trough
-      an <em>inclusive</em> lens focussing on the accessibility of cryptocurrencies in relation to 'traditional'
+      currencies (cryptocurrencies) through
+      an <em>inclusive</em> lens focusing on the accessibility of cryptocurrencies in relation to 'traditional'
       financial
       services based on prediction Nº 7; <em>The Internet will become ‘the Internets’ as access, systems, and
         principles are
@@ -36,6 +38,13 @@
       a
       working Bitcoin node to receive and store transactions. This build log shows the process of setting up the
       prototype of the node.</p>
+
+    <p>Created by Danny de Vries for the Shaping Digital Life course at the Amsterdam University Master Information
+      Systems. <em>Due to privacy concerns and the possibility of exposing personal details (such as transaction IDs,
+        and wallet addresses)
+        parts of images are blurred and screenshots taken during the set-up are intentionally not part of this build
+        log</em>.
+    </p>
 
     <a href="#" class="button">Download the full research report</a>
   </section>
@@ -54,27 +63,27 @@
     <h2>Gathering the hardware</h2>
     <p>To run a full Bitcoin node two main hardware components are needed. A microcontroller using an ARM chipset that
       has wifi capabilities. A popular option, and the microcontroller we will be using for this project, is a Raspberry
-      Pi Model 4 with atleast 4gb of RAM. This microcontroller is a great balance between cost (around 40 euros),
-      processing power and connection ports. This microcontroller will run the node software. The second main hardware
+      Pi Model 4 with at least 4GB of RAM. This microcontroller is a great balance between cost (around 40 euros),
+      processing power, and connection ports. This microcontroller will run the node software. The second main hardware
       component is a hard drive with around 1TB of storage. This will be used to store the complete blockchain ledger of
       Bitcoin to date. </p>
 
     <figure>
-      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+      <img src="/images/microcontroller.jpg">
       <figcaption>Figure 1: Overview of all hardware</figcaption>
     </figure>
 
     <p>Additionally, some other hardware components are needed to make a fully operating node. A power supply to power
-      the microcontroller, an SD card to install the software and create back-ups and preferabbly an ethernet cable to
+      the microcontroller, an SD card to install the software and create back-ups, and preferably an ethernet cable to
       connect the node to the internet.</p>
 
-    <p>A full node is likely to operate 24/7, due to it's pcb structure a Raspberry PI is able to handle this workload
-      but it is recommended to cool the CPU to make it not overheat. For this reason I deciced to 3D print an enclosure
-      for the raspberry pi with active fan cooling.</p>
+    <p>A full node is likely to operate 24/7, the Raspberry PI is able to handle this workload
+      but it is recommended to cool the CPU to make it not overheat. For this reason, a 3D printed enclosure
+      for the Raspberry Pi with active fan cooling was printed.</p>
   </section>
 
   <figure class="fullwidth">
-    <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+    <img src="/images/printing.jpg">
     <figcaption>Figure 2: Final hardware setup with 3D printed enclosure</figcaption>
   </figure>
 
@@ -83,27 +92,28 @@
     <p>Several software packages exist for hosting a Bitcoin full node (e.g. Umbrel, Voltage, Start9) but after
       researching the projects RaspiBlitz suited my needs the most. It's completely open-source, easy to install if you
       know you're way around the terminal, has a decent user interface and it's completely self-hosted. You are not
-      relient on any third-party cloud service. </p>
+      reliant on any third-party cloud service. </p>
 
 
     <p>The focus of the project is also entirely Bitcoin and Lightning so many
       additional services (e.g. BTCPay, Mempool explorer) can be installed as plugins. The goal of the RaspiBlitz is
       mainly targeted at learning how to run your own node decentralized from home. There are 168 contributors
-      working on the project and receives regular update. v1.8 was released in november 2022 and has been stabely
-      running sice then, no security breaches to date.</p>
+      working on the project and receiving regular updates. v1.8 was released in November 2022 and has been running
+      stably
+      since then, no security breaches to date.</p>
 
     <figure>
-      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+      <img src="/images/flashing.jpg">
       <figcaption>Figure 3: Flashing the SD card</figcaption>
     </figure>
 
-    <p>To install the software, it is downloaded from the GitHub release page which gives you an <code>.img</code> file.
+    <p>To install the software, it is downloaded from the GitHub release page which gives you a <code>.img</code> file.
       To verify the software a quick verification of the image was performed by using the shasum command on the
       downloaded image <code>shasum -a 256 raspiblitz-v1.8.0c-2022-11-01.img.gz.</code>
     </p>
 
     <p>Now the image can be flashed to the MicroSD Card. For this Balena Etcher was used. You select the image, select
-      the storage device (SD Card) and hit flash. After 10 minutes or so (the image is around 3GB) this process is
+      the storage device (SD Card), and hit flash. After 10 minutes or so (the image is around 3GB) this process is
       completed and you have the software installed on the SD card.</p>
 
 
@@ -111,31 +121,34 @@
 
   <section>
     <h2>Setting up the Node</h2>
-    <p>Now it's time to actually set-up the node. The SD card is inserted to the microcontroller, connected to power
-      and ethernet and the storage device for the ledger is connected using USB. At my personal homelab in the closed of
-      my home all devices were connected. </p>
+    <p>Now it's time to actually setup the node. The SD card is inserted into the microcontroller, connected to power,
+      and ethernet and the storage device for the ledger is connected using USB. Only thing left to do is to give it a
+      proper spot At my in the closed off a home.
+    </p>
 
     <figure class="fullwidth">
-      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
+      <img src="/images/homelab.jpg">
       <figcaption>Figure 4: Node running in my homelab</figcaption>
     </figure>
 
-    <p>After the device is connected and powered on you can reach it over you home network by using the terminal and
+    <p>After the device is connected and powered on it is reachable over a home network by using the terminal and
       <code>SSH</code>. The IP address of the Raspberry Pi can be found in the network software of your home router.
       Using the <code>ssh admin@[xxxxx]</code> command with the correct IP and password RaspiBlitz you are logged into
-      the device and prompted with a set-up screen. The steps are described in the readme.md file of the RaspiBlitz
+      the device and prompted with a set up screen. The steps are described in the readme.md file of the RaspiBlitz
       project on GitHub so going into detail here is unnecessary but the setup process basically guides you through two
       things:
     </p>
     <p>
-      <strong>Creating a lightning wallet:</strong> the set-up screen asks to set-up password for the web interface and
+      <strong>Creating a lightning wallet:</strong> the set up screen asks to set up a password for the web interface
+      and
       your
-      wallets. After the wallet is created a seed phrase will be shown which is important to write down. This gives
+      wallets. After that, the layer-2 lightning wallet is created a seed phrase will be shown which is important to
+      write down. This gives
       access to the funds if the hardware fails. It allows you to recover your wallet.</strong>
     </p>
     <p>
-      <strong>Copying the full Blockchain ledger to the hard-drive:</strong> self-validating all the blocks to the
-      hard-drive
+      <strong>Copying the full Blockchain ledger to the hard drive:</strong> self-validating all the blocks to the
+      hard drive
       takes around 8-9 days so for the prototype the option was picked to copy the bitcoin core from my laptop which
       took about 12h.
     </p>
@@ -148,12 +161,50 @@
     <p>The software provided a nice web-based user interface for connecting to the node and making transactions to the
       wallet. To test the workings of the wallet a small amount was deposited to the account.</p>
 
+    <p>First, we need to have Bitcoin. Many options can be considered in getting the first bitcoin. Running mining
+      software, having a friend who already owns Bitcoin make a transaction but probably the route most users will go
+      through is buying Bitcoin with Fiat currency on an exchange such as Bitvavo or a spot website such as Bitonic. For
+      this prototype, we will be using Bitonic. The downside of these exchanges and spot websites are that they are
+      required by law to do a Know Your Customer (KYC) process making your transaction in theory not completely private.
+    </p>
+
     <figure class="fullwidth">
-      <img src="https://edwardtufte.github.io/tufte-css/img/napoleons-march.png">
-      <figcaption>Figure 4: Node running in my homelab</figcaption>
+      <img src="/images/install.jpg">
+      <figcaption>Figure 4: Keys and seed words after install</figcaption>
     </figure>
 
-    <p>On a Ledger Hardware Wallet bitcoin was transferred to the wallet there.</p>
+    <p>On the Bitonic website, 100 euro was transferred using iDeal which at its current valuation price is roughly
+      0.00392426 BTC or 392426 Satoshis (fractions of Bitcoin). The Bitcoin amount is sent to the BTC address that
+      corresponds with a Nano Ledger S cold wallet.
+    </p>
+
+    <p>Once the funds were added to the Nano cold wallet a transaction was made to the node running in the Homelab. This
+      was done using an on-chain transaction with Ride the Lightning which can be installed as a plugin in RaspiBlitz.
+      In the Ride the Lightning dashboard an on-chain address can be created to send funds too. Since the Nano Ledger
+      doesn't fully support lightning transactions it's good practice to first transfer the funds to a
+      lighting-optimized 'hot wallet' such as a smartphone wallet which can be installed through the iOS app store. For
+      this
+      prototype, the Blue Wallet was downloaded. So in short:</p>
+
+    <ol>
+      <li>BTC was bought on Bitonic</li>
+      <li>Send to the Nano Ledger</li>
+      <li>Part of the funds sent to the Blue Wallet</li>
+      <li>From the Blue Wallet to the self-hosted Node</li>
+    </ol>
+
+    <p>Once the transaction is made the transaction gets an ID which you can view in the Mempool waiting for
+      confirmations
+      of
+      blocks in the blockchain. After around 3 confirmations the ledger approved the transaction and the funds are on
+      the wallet of the node!</p>
+
+    <figure class="fullwidth">
+      <img src="/images/dashboard.jpg">
+      <figcaption>Figure 5: Sample screenshot of the RaspiBlitz UI</figcaption>
+    </figure>
+
+    <p>Now the sky is the limit! Everything is in place to send and receive BTC and Lightning transactions.</p>
   </section>
 </body>
 

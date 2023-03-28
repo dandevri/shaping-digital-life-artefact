@@ -52,13 +52,6 @@ body {
   counter-reset: sidenote-counter
 }
 
-@media (prefers-color-scheme:dark) {
-  body {
-    background-color: #151515;
-    color: #ddd
-  }
-}
-
 h1 {
   font-weight: 400;
   margin-top: 4rem;
@@ -239,7 +232,6 @@ a:link {
   -moz-background-size: .05em 1px, .05em 1px, 1px 1px;
   background-size: .05em 1px, .05em 1px, 1px 1px;
   background-repeat: no-repeat, no-repeat, repeat-x;
-  text-shadow: .03em 0 #fffff8, -.03em 0 #fffff8, 0 .03em #fffff8, 0 -.03em #fffff8, .06em 0 #fffff8, -.06em 0 #fffff8, .09em 0 #fffff8, -.09em 0 #fffff8, .12em 0 #fffff8, -.12em 0 #fffff8, .15em 0 #fffff8, -.15em 0 #fffff8;
   background-position: 0 93%, 100% 93%, 0 93%
 }
 
@@ -249,15 +241,6 @@ a:link {
   .tufte-underline,
   a:link {
     background-position-y: 87%, 87%, 87%
-  }
-}
-
-@media (prefers-color-scheme:dark) {
-
-  .hover-tufte-underline:hover,
-  .tufte-underline,
-  a:link {
-    text-shadow: .03em 0 #151515, -.03em 0 #151515, 0 .03em #151515, 0 -.03em #151515, .06em 0 #151515, -.06em 0 #151515, .09em 0 #151515, -.09em 0 #151515, .12em 0 #151515, -.12em 0 #151515, .15em 0 #151515, -.15em 0 #151515
   }
 }
 

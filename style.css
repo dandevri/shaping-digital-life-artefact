@@ -1,9 +1,27 @@
 body {
   font-family: 'Inter', sans-serif;
+  background: white;
+  color: #111;
+  text-shadow: none;
+
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: bold;
+  color: #1c1cf5;
+}
+
+figure,
+img {
+  width: 100vh;
+  height: 40vh;
+}
+
+img {
+  object-fit: cover;
 }
 
 .button {
